@@ -1,6 +1,17 @@
 # main.py
 import asyncio
 import sys
+
+
+import os
+import sys
+
+# လက်ရှိ main.py ရှိတဲ့ folder ထဲက .so ဖိုင်ကို တိုက်ရိုက် ဆွဲသုံးခိုင်းခြင်း
+sys.path.append(os.path.dirname(os.path.abspath(__file__)))
+
+
+
+
 from yourgod import start  # yourgod.so ဖိုင်ထဲက start function ကို လှမ်းခေါ်ခြင်း
 
 if __name__ == '__main__':
