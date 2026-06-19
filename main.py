@@ -6,9 +6,22 @@ import sys
 import os
 import sys
 
-# လက်ရှိ main.py ရှိတဲ့ folder ထဲက .so ဖိုင်ကို တိုက်ရိုက် ဆွဲသုံးခိုင်းခြင်း
-sys.path.append(os.path.dirname(os.path.abspath(__file__)))
+import os
+import sys
+import ctypes
 
+# ၁။ လက်ရှိ main.py ရှိနေတဲ့ Folder လမ်းကြောင်းကို အလိုအလျောက် ယူခြင်း
+current_dir = os.path.dirname(os.path.abspath(__file__))
+
+# ၂။ Python ရဲ့ လမ်းကြောင်းထဲ ထည့်ပေးခြင်း
+sys.path.append(current_dir)
+
+# ၃။ yourgod.so ကို လက်ရှိ folder ထဲကနေပဲ တိုက်ရိုက်ခေါ်ခြင်း
+so_path = os.path.join(current_dir, "yourgod.so")
+lib = ctypes.CDLL(so_path)
+
+# ၄။ ပြီးမှ start function ကို လှမ်းခေါ်ပါ
+lib.start.argtypes = []
 
 
 
